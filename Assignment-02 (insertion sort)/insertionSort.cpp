@@ -25,25 +25,17 @@ int insertionSort(int *arr, int size)
     }
     return comparision;
 }
-void printArray(int *arr, int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
+
 int main()
 {
     srand(time(0));
 
-    int n;
     int minBound = 1, maxBound = 100;
     int *arr;
 
     // file opening
     ofstream csvFile("search_comparisons.csv");
-    csvFile << "Data Size,Best Case,Worst Case,Average Case\n";
+    csvFile << "DataSize,BestCase,WorstCase,AverageCase\n";
 
     for (int i = 10; i <= 100; i = i + 5)
     {
@@ -63,11 +55,13 @@ int main()
             bestCase = bestCase > compare ? compare : bestCase;
             worstCase = worstCase > compare ? worstCase : compare;
             averageCase += compare;
+
+            delete[] arr;
             // printArray(arr, i);
         }
 
-        // pushing data in the file
-        csvFile << i << "," << bestCase << "," << worstCase << "," << averageCase / i << "\n";
+        // insertingc  data in the file
+        csvFile << i << "," << bestCase << "," << worstCase << "," << averageCase / 10 << "\n";
     }
     return 0;
 }
