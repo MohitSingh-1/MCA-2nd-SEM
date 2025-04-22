@@ -1,0 +1,12 @@
+6 
+5
+0 1
+0 2
+2 3
+2 4
+4 5
+
+
+here first line tells the number of vertices
+second line tells the number of edges 
+the all the others are the edges
